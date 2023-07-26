@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CREATE TASK</title>
+</head>
+<center><h1>TASK CREATOR</h1></center>
+
+<form method="POST" action="/createon/{{date}}">
+<br>
+<br>
+<center><b>Task : </b><input type="text" name="task"/></center>
+<br>
+<center><b>Subject : </b>
+    <select name="subjects"> 
+        <option value="Physics">Physics</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Maths">Maths</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Misc">Misc</option>
+    </select>
+</center>
+<br>
+<center><input type="submit"></center>
+<br>
+</form>
+</html>
+{% endblock content %}

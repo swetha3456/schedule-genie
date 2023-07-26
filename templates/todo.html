@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+
+
+</head>
+
+<div>
+
+<h3>MY TO DO</h3>
+<form id ="form1" method="post" action="/mytodo/add" class="round-box">
+    <div>
+        <label for="task">Task : </label>
+        <input type="text" placeholder="Enter task..." name="task">
+        <br><br>
+        <label for="subject">Subject : <select name="subject" id="subject">
+            <option value='' selected="selected">Select Subject ... </option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Math">Math</option>
+            <option value="CS">Computer Science</option>            
+        </select></label>
+        <br>
+        <br>
+        <b>        Search Subject Chapters        </b>
+        <br>
+        <label for="chnum">Select Chapter Code : </label> 
+        <input list="chapters" name="chnum" id="chnum">
+        <datalist id="chapters">
+            <option value="1"><b>PHYSICS : </b>Electric Charges and Fields</option>
+            <option value="2"><b>PHYSICS : </b>Electrostatic Potential and Capacitance</option>
+            <option value="3"><b>PHYSICS : </b>Current Electricity</option>
+            <option value="4"><b>PHYSICS : </b>Moving Charges and Magnetism</option>
+            <option value="5"><b>PHYSICS : </b>Magnetism and Matter</option>
+            <option value="6"><b>PHYSICS : </b>Electromagnetic Induction</option>
+            <option value="7"><b>PHYSICS : </b>Alternating Current</option>
+            <option value="8"><b>PHYSICS : </b>Electromagnetic Waves</option>
+            <option value="9"><b>PHYSICS : </b>Ray Optics and Optical Instruments</option>
+            <option value="10"><b>PHYSICS : </b>Wave Optics</option>
+            <option value="11"><b>PHYSICS : </b>Dual Nature of Radiation and Matter</option>
+            <option value="12"><b>PHYSICS : </b>Atoms</option>
+            <option value="13"><b>PHYSICS : </b>Nuclei</option>
+            <option value="14"><b>PHYSICS : </b>Semiconductor Electronics</option>
+
+            <option value="15"><b>CHEMISTRY : </b>Solid State</option>
+            <option value="16"><b>CHEMISTRY : </b>Solutions</option>
+            <option value="17"><b>CHEMISTRY : </b>Electrochemistry</option>
+            <option value="18"><b>CHEMISTRY : </b>Chemical Kinetics</option>
+            <option value="19"><b>CHEMISTRY : </b>Surface Chemistry</option>
+            <option value="20"><b>CHEMISTRY : </b>General Principals and Processes of Isolation of Elements</option>
+            <option value="21"><b>CHEMISTRY : </b>The p-block Elements</option>
+            <option value="22"><b>CHEMISTRY : </b>The d- and f-block Elements</option>
+            <option value="23"><b>CHEMISTRY : </b>Coordination Compounds</option>
+            <option value="24"><b>CHEMISTRY : </b>Haloalkanes and Haloarenes</option>
+            <option value="25"><b>CHEMISTRY : </b>Alcohols, Phenols and Ethers</option>
+            <option value="26"><b>CHEMISTRY : </b>Aldehydes, Ketones and Carboxylic Acids</option>
+            <option value="27"><b>CHEMISTRY : </b>Amines</option>
+            <option value="28"><b>CHEMISTRY : </b>Biomolecules</option>
+            <option value="29"><b>CHEMISTRY : </b>Polymers</option>
+            <option value="30"><b>CHEMISTRY : </b>Chemistry in Everyday Life</option>
+
+            <option value="31"><b>MATHEMATICS : </b>Relations and Functions</option>
+            <option value="32"><b>MATHEMATICS : </b>Inverse Trigonometric Functions</option>
+            <option value="33"><b>MATHEMATICS : </b>Matrices</option>
+            <option value="34"><b>MATHEMATICS : </b>Determinants</option>
+            <option value="35"><b>MATHEMATICS : </b>Continuity and Differentiabilty</option>
+            <option value="36"><b>MATHEMATICS : </b>Applications of Derivatives</option>
+            <option value="37"><b>MATHEMATICS : </b>Integrals</option>
+            <option value="38"><b>MATHEMATICS : </b>Application of Integrals</option>
+            <option value="39"><b>MATHEMATICS : </b>Differential Equations</option>
+            <option value="40"><b>MATHEMATICS : </b>Vector Algebra</option>
+            <option value="41"><b>MATHEMATICS : </b>Three Dimensional Geometry</option>
+            <option value="42"><b>MATHEMATICS : </b>Linear Programming</option>
+            <option value="43"><b>MATHEMATICS : </b>Probability</option>
+
+            <option value="44"><b>COMPUTERS : </b>Python Revision Tour</option>
+            <option value="45"><b>COMPUTERS : </b>Python Revision Tour - II</option>
+            <option value="46"><b>COMPUTERS : </b>Working with Functions</option>
+            <option value="47"><b>COMPUTERS : </b>Using Python Libraries</option>
+            <option value="48"><b>COMPUTERS : </b>File Handling</option>
+            <option value="49"><b>COMPUTERS : </b>Recursion</option>
+            <option value="50"><b>COMPUTERS : </b>Idea of Algorithmic Efficiency</option>
+            <option value="51"><b>COMPUTERS : </b>Data Structures: Linear Lists</option>
+            <option value="52"><b>COMPUTERS : </b>Data Structures: Stacks and Queues Using Lists</option>
+            <option value="53"><b>COMPUTERS : </b>Communication and Network Concepts</option>
+            <option value="54"><b>COMPUTERS : </b>Relational Databases</option>
+            <option value="55"><b>COMPUTERS : </b>Simple Queries in MySQL</option>
+            <option value="56"><b>COMPUTERS : </b>Table Creation and Data Manipulation Commands</option>
+            <option value="57"><b>COMPUTERS : </b>Grouping Records, Joins in SQL</option>
+            <option value="58"><b>COMPUTERS : </b>Interface Python with MySQL</option>
+
+
+
+
+
+
+
+        </datalist> 
+        
+        <br>
+        <br>
+        <p>Deadline : <input type="date" name="deadline"></p>
+        <br>
+        <button type="submit" class="button">Add</button>
+    </div>
+
+</form>
+<br>
+<br>
+<button name="calendar" class="button"><a href="{{ url_for('calendar') }}">View Calendar</a></button>
+<!--br>
+<br>
+
+{% for todo in todo_list %}
+    <p><h3>{{ todo[1] }} </h3>
+        
+        Subject : {{ todo[5] }}
+        <br>
+        Chapter : {{ todo[7] }}
+        <br>
+        Deadline : {{ todo[2] }}
+        <br>
+    {% if todo[3] == 0 %}
+        <span>Not Completed</span>
+    {% else %}
+        <span>Completed</span>
+    {% endif %}
+    <br>
+    <br>
+    <button><a href="/mytodo/update/{{ todo[0] }}">Done</a></button>
+    <button><a href="/mytodo/delete/{{ todo[0] }}">Delete</a></button>
+    
+  
+    </p>
+    <br>
+    <br>
+
+
+
+
+{% endfor %}
+
+</div-->
+{% endblock content %}

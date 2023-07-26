@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Tasks</title>
+
+
+</head>
+
+<div>
+
+<h3>My Tasks</h3>
+<button><a href="{{ url_for('add') }}">Add Task</a></button>
+<br>
+</div>
+<table  border="2">
+    <tr>
+        <th>Task</th>
+        <th>Subject</th>
+        <th>Chapter</th>
+        <th>Deadline</th>
+        <th>Status</th>
+    </tr>
+    {% for todo in todo_list %}
+    <tr>
+        <td>{{ todo[1] }}</td>
+        <td>{{ todo[5] }}</td>
+        <td>{{ todo[7] }}</td>
+        <td>{{ todo[2] }}</td>
+        {% if todo[3] == 0 %}
+            <td>Not Completed</td>
+        {% else %}
+            <td>Completed</td>
+        {% endif %}
+
+        {% if todo[3] == 0 %}
+            <td><button><a href="/mytodo/update/{{ todo[0] }}">Done</a></button></td>
+        {% else %}
+            <td><button><a href="/mytodo/update/{{ todo[0] }}">Reset</a></button></td>
+        {% endif %}
+        <td><button><a href="/mytodo/delete/{{ todo[0] }}">Delete</a></button></td>
+    </tr>
+    {% endfor %}
+    
+</table>
+
+{% endblock content %}

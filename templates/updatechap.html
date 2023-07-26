@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<form method="POST" action="" >
+<legend style="color:rgb(8, 7, 7);">Select the chapters you've finished.</legend>
+{% for i in chaps %}
+  <input type="checkbox" name="{{i}}" value="done">
+  <label for="{{i}}"> {{chaps[i]}} </label><br>
+{% endfor %}
+<input type="submit">
+</form>
+{% endblock content %}

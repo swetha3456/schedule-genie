@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+input[type=submit] {
+    width: 50%;
+    background-color: #63696d;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+      
+input[type=submit]:hover {
+    background-color: #576c7a;
+}
+      
+div {
+    border-radius: 5px;
+    padding: 30px;
+}
+legend{
+  font-size: 40px;;
+}
+</style>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body >
+    <div  style="text-align:center;">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset  class="w3-container w3-light-blue">
+                <legend style="text-align:left;">Join Today</legend>
+                <div>
+                    {{ form.username.label}}
+                    {% if form.username.errors %}
+                    {{ form.username}}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username}}
+                {% endif %}
+                </div>
+
+                <div>
+                    {{ form.email.label }}
+                    {% if form.email.errors %}
+                        {{ form.email}}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email}}
+                    {% endif %}
+                </div>
+
+                <div>
+                    {{ form.password.label }}
+                    {% if form.password.errors %}
+                        {{ form.password}}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password}}
+                    {% endif %}
+                    <br>
+                    <small>Password should be of minimum 8 characters. Preferably, a combination of Numbers, characters and alphabets. </small>
+                    </br>
+                </div>
+
+                <div>
+                    {{ form.confirm_password.label }}
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password }}
+                        <div class="invalid-feedback">
+                            {% for error in form.confirm_password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.confirm_password}}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit() }} 
+            </div>
+        </form>
+    </div>
+    <div>
+        <p style="color: black">
+            Already Have An Account? <a href="{{ url_for('login') }}">Sign In</a>
+        </p>
+    </div>
+</body>
+</html>

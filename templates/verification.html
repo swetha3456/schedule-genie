@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+input[type=submit] {
+    width: 50%;
+    background-color: #63696d;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+      
+input[type=submit]:hover {
+    background-color: #576c7a;
+}
+      
+div {
+    border-radius: 5px;
+    padding: 30px;
+}
+legend{
+  font-size: 40px;
+  font-family: "Lucida Handwriting", "Courier New";
+}
+</style>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body style="background-color:#ffdbe9">
+
+<!--p id="verification_code">
+    <button type="button" onclick="send_verification_code()"> Send verification code </button>
+</p-->
+ 
+    <div> A verification has been sent to that email. Type that out here.
+        <br>
+        <form method="post" action='/forgotpassword/verification'>
+        <input type='text' name="vcode" id="vcode"> 
+        <button type='submit'>Submit</button>
+        </form>
+    </div>
+    <!--div>
+        {% if vcode == code %}
+        <p><h3>success </h3></p>      
+        {% else %}
+        <p><h3>Fail:( </h3></p>     
+        {% endif %}
+    </div-->
+
+</body>
+</html>

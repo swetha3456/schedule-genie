@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Calendar</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Abril+Fatface'><link rel="stylesheet" href="/static/style.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script>
+$(document).ready(function() {
+
+$(function() {
+   $(".datepicker").datepicker({
+    prevText: '<i class="fa fa-fw fa-angle-left"></i>',
+    nextText: '<i class="fa fa-fw fa-angle-right"></i>'
+  });
+});
+
+$(".datepicker").change(function() {
+                    var date_select = $(this).datepicker('getDate');
+ 	            window.location.replace("/calendar/"+date_select.toLocaleDateString().replace("/","-").replace("/","-"));
+                })
+});
+</script>
+
+</head>
+<body style="background-color: #80CBC4;">
+
+<div class="datepicker">
+  <div class="datepicker-header">
+</div>
+</div>
+</body>
+</html>
+{% endblock content %}

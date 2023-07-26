@@ -1,0 +1,55 @@
+<style>
+/* popup container */
+.popup{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* The actual popup (Appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: aliceblue;
+    color: black;
+    text-align: center;
+    border-radius: 3px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent;    
+}
+
+/* toggle this class when clicking on the popup container (i.e. hiding and showing popup)*/
+.popup .show {
+    visibility: visible;
+    
+}
+
+</style>
+
+<script>
+//when user clicks on <div>, open popup//
+
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+</script>
+
+-webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;

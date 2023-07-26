@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<center>
+<h1 style="font-family: 'Geneva'; color: black;">My Schedule for {{prettydate}}</h1>
+<button type="button" class="button" onclick=window.location.href="{{ url_for('calendar') }}"> Back to Calendar </button>
+<br>
+<button type="button" class="button" onclick=window.location.href="{{ url_for('add') }}"> Add Tasks</button>
+    <table border=1 id='Table' class="round-box">
+    <tr>
+        <th style="width: 250px;" ><b>TASK</b></th>
+        <th style="width: 250px;" ><b>SUBJECT</b></th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td name="taskname"> {{task[0]}}</td>
+        <td name="subject">{{task[1]}}</td>
+    </td>
+    </tr>
+    {% endfor %}
+    <!--ul style="background-color: #000000b2">
+        <li><a href="{{url_for('index') }}"> My To-Do List</a></li>
+     
+    </ul-->
+</center>
+</table>
+</html>
+{% endblock content %}

@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block content %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+.button {
+  background-color: #80CBC4;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.w3-container {
+	
+ 
+</style>
+<div class="w3-container">
+<h3>Update Status</h3>
+<button type="button" class="button" onclick="window.location.href='../updatechap/cs';">CS</button>
+<button type="button" class="button" onclick="window.location.href='../updatechap/math';">Math</button>
+<button type="button" class="button" onclick="window.location.href='../updatechap/phy';">Physics</button>
+<button type="button" class="button" onclick="window.location.href='../updatechap/chem';">Chemistry</button>
+</div>
+<br>
+<div class="w3-container">
+    <h3>Chapterwise Percentage</h3>
+    <p>Computer Science</p>
+<p>Term 1</p>
+<div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-red" style="width:{{d["cs"][0]}}%">{{d["cs"][0]}}%</div>
+    </div>
+<br>
+<p>Term 2</p>
+<div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-red" style="width:{{d["cs"][1]}}%">{{d["cs"][1]}}%</div>
+    </div>
+<br><br><br>
+    <p>Physics</p>
+<p>Term 1</p>
+<div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-red" style="width:{{d["physics"][0]}}%">{{d["physics"][0]}}%</div>
+    </div>
+<br>
+<p>Term 2</p>
+<div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-red" style="width:{{d["physics"][1]}}%">{{d["physics"][1]}}%</div>
+    </div>
+<br><br><br>
+    <p>Math</p>
+<p>Term 1</p>
+<div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-red" style="width:{{d["math"][0]}}%">{{d["math"][0]}}%</div>
+    </div>
+<br>
+<p>Term 2</p>
+<div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-red" style="width:{{d["math"][1]}}%">{{d["math"][1]}}%</div>
+    </div>
+<br><br><br>
+    <p>Chemistry</p>
+<p>Term 1</p>
+<div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-red" style="width:{{d["chemistry"][0]}}%">{{d["chemistry"][0]}}%</div>
+    </div>
+<p>Term 2</p>
+<div class="w3-grey">
+      <div class="w3-container w3-center w3-padding w3-red" style="width:{{d["chemistry"][1]}}%">{{d["chemistry"][1]}}%</div>
+    </div>
+
+</script>
+
+{% endblock content %}
